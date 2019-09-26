@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>login</display-name>
+  <module-name>rublonexample</module-name>
+  <servlet>
+    <description></description>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>com.rublon.sdk.example.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/logout</url-pattern>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>PasswordlessController</servlet-name>
+    <servlet-class>com.rublon.sdk.example.PasswordlessController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PasswordlessController</servlet-name>
+    <url-pattern>/passwordless</url-pattern>
+    <url-pattern>/Passwordless</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.rublon.sdk.example.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+</web-app>

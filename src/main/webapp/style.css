@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #f5f8fa;
+    font-family: Raleway, sans-serif;
+}
+.align-center {
+    text-align: center
+}
+#loginForm {
+    width: 330px;
+    margin: 0 auto
+}
+#logout-container {
+    width: 500px;
+    margin: 0 auto
+}
+.align-right {
+    text-align: right
+}
+.error {
+    border-color: red
+}
+a {
+    color: rgba(0,0,0,.5);
+}
+a:hover {
+    color: rgba(0,0,0,.7);
+    text-decoration: none;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container span {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: .32rem;
+    padding-bottom: .32rem;
+    margin-right: 1rem;
+    font-size: 1.125rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+.vertical-middle {
+    vertical-align: middle;
+    margin: auto;
+}
+.container > a {
+    display: inline-block;
+    padding-top: .32rem;
+    padding-bottom: .32rem;
+    margin-right: 1rem;
+    font-size: 1.125rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+.container > div {
+    width: 100%;
+}
+nav.navbar {
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.04);
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+.logo-container {
+    margin: auto;
+}
+.logo-container > a {
+    font-size: 1.25rem;
+    vertical-align: middle;
+}
+.fieldLabel {
+    vertical-align: middle;
+    margin: auto;
+}
+#rublonLoginBox {
+    margin-top: 3em;
+}
+.flashMsg {
+    width: 50%;
+    margin: 0 auto;
+}
+.logo {
+    height: 32px;
+    width: 32px;
+}
