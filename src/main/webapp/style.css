@@ -112,3 +112,6 @@ nav.navbar {
     height: 32px;
     width: 32px;
 }
+.init-btn {
+    vertical-align: text-top;
+}

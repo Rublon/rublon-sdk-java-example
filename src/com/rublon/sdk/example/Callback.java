@@ -14,15 +14,15 @@ import com.rublon.sdk.twofactor.RublonCallback;
 
 class Callback extends RublonCallback {
 
-	HttpServletRequest  request  = null;
-	HttpServletResponse response = null;
+	HttpServletRequest  request;
+	HttpServletResponse response;
 
 	/**
 	 * Callback`s constructor
 	 * 
-	 * @param Rublon rublon
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
+	 * @param rublon Rublon instance
+	 * @param request
+	 * @param response
 	 * @throws ConfigurationException
 	 */
 	public Callback(Rublon rublon, HttpServletRequest request, HttpServletResponse response)
@@ -74,8 +74,8 @@ class Callback extends RublonCallback {
 	 */
 	protected void userAuthenticated(String userId) {
 		HttpSession session = request.getSession();
-		session.setAttribute("email", userId);
-		request.setAttribute("email", userId);
+		session.setAttribute("username", userId);
+		request.setAttribute("username", userId);
 
 		RequestDispatcher dispatcher = request.getSession().getServletContext().getRequestDispatcher("/success.jsp");
 		try {
@@ -83,6 +83,5 @@ class Callback extends RublonCallback {
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
-		return;
 	}
 }

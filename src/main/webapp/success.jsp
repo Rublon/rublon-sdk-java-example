@@ -22,7 +22,7 @@
 				</div>
 				<div class="col-4"></div>
 				<div class="col-4 align-right">
-					<% if (session.getAttribute("email") != null) { %>
+					<% if (session.getAttribute("username") != null) { %>
 						<a href="logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
 					<% } %>
 				</div>
@@ -34,9 +34,9 @@
 			<%=session.getAttribute("flashMsgText")%>
 		</div>
 	<% } %>
-	<% if (session.getAttribute("email") != null) { %>
+	<% if (session.getAttribute("username") != null) { %>
 	<div id="logout-container" class="mt-4 align-center">
-		<h1>Welcome <%=session.getAttribute("email")%>!</h1>
+		<h1>Welcome <%=session.getAttribute("username")%>!</h1>
 	</div>
 	<% } %>
 </body>

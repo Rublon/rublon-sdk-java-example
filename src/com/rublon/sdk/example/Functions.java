@@ -44,9 +44,9 @@ public class Functions {
 
 	/**
 	 * Hook bootstrap
-	 * 
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
+	 *
+	 * @param request
+	 * @param response
 	 */
 	public void hook_bootstrap(HttpServletRequest request, HttpServletResponse response) {
 		if (request.getParameter("rublon") != null && request.getParameter("rublon").equals("callback")) {
@@ -61,14 +61,16 @@ public class Functions {
 
 	/**
 	 * Hook before login
-	 * 
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
-	 * @param String userEmail
+	 *
+	 * @param request
+	 * @param response
+	 * @param userName
+	 * @param userEmail
+	 * @param consumerParams
 	 * @throws IOException
-	 * @throws ServletException 
+	 * @throws ServletException
 	 */
-	public void authenticate(HttpServletRequest request, HttpServletResponse response, String userEmail, JSONObject consumerParams, boolean isPasswordless)
+	public void authenticate(HttpServletRequest request, HttpServletResponse response, String userName, String userEmail, JSONObject consumerParams)
 			throws IOException, ServletException {
 		// Make sure that the user is not logged-in
 		request.getSession().invalidate();
@@ -78,13 +80,14 @@ public class Functions {
 			String url = null;
 			try {
 				String callback = generateCallbackUrl(request);
-				url = rublon.auth(callback, userEmail, userEmail, consumerParams, isPasswordless);
+				url = rublon.auth(callback, userName, userEmail, consumerParams);
 			} catch(UserBypassedException e) {
 				String dispatcher;
-				if (userEmail != null) {
+				if (userName != null) {
 					HttpSession session = request.getSession();
 					session.setAttribute("flashMsgType", NOTICE);
 					session.setAttribute("flashMsgText", "User bypassed");
+					session.setAttribute("username", userName);
 					session.setAttribute("email", userEmail);
 					dispatcher = "/success.jsp";
 				} else {
@@ -119,6 +122,26 @@ public class Functions {
 	}
 
 	/**
+	 * Send APP init request
+	 * @param request
+	 */
+	public String appInit(HttpServletRequest request) {
+		String dispatcher = "/init.jsp";
+
+		try {
+			rublon.init(cfg.get("APP_VERSION"));
+			request.setAttribute("appInit", "OK");
+		} catch(RublonException e) {
+			e.printStackTrace();
+			request.setAttribute("error", e.getMessage());
+			dispatcher = "/rublonError.jsp";
+		}
+
+		return dispatcher;
+	}
+
+
+	/**
 	 * Method for generating callback url
 	 *
 	 * @param request
@@ -149,7 +172,7 @@ public class Functions {
 		File file = new File(classLoader.getResource(this.configFileName).getFile());
 		String content = new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())));
 		String[] lines = content.split("\n");
-		Map<String, String> config = new HashMap<String, String>();
+		Map<String, String> config = new HashMap<>();
 
 		for (String line : lines) {
 			String[] elements = line.trim().split("=");
@@ -170,7 +193,7 @@ public class Functions {
 	/**
 	 * Method to validate config
 	 * 
-	 * @param Map<String, String> cfg
+	 * @param cfg
 	 * @return boolean
 	 */
 	public boolean isValidConfig(Map<String, String> cfg) {
@@ -181,7 +204,7 @@ public class Functions {
 	/**
 	 * Method to get config field by name
 	 * 
-	 * @param String name
+	 * @param name field name
 	 * @return String
 	 * @throws IOException
 	 */
@@ -190,9 +213,5 @@ public class Functions {
 		Map<String, String> cfg = func.getConfig();
 
 		return cfg.get(name);
-	}
-
-	public String getRublonWidget() {
-		return rublon.getWidget();
 	}
 }

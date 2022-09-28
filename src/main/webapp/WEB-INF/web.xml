@@ -14,16 +14,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <servlet-name>PasswordlessController</servlet-name>
-    <servlet-class>com.rublon.sdk.example.PasswordlessController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>PasswordlessController</servlet-name>
-    <url-pattern>/passwordless</url-pattern>
-    <url-pattern>/Passwordless</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
     <servlet-class>com.rublon.sdk.example.LoginController</servlet-class>
@@ -33,4 +23,18 @@
     <url-pattern>/Login</url-pattern>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>InitController</servlet-name>
+    <servlet-class>com.rublon.sdk.example.InitController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitController</servlet-name>
+    <url-pattern>/init</url-pattern>
+    <url-pattern>/Init</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>showAppInit</param-name>
+    <param-value>true</param-value>
+  </context-param>
 </web-app>

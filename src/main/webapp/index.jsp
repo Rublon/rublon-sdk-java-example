@@ -20,9 +20,12 @@
 						<img src="Rublon-favicon-128.png" class="mr-3 logo">
 						<a href="index.jsp">Rublon Example</a>
 					</div>
-					<div class="col-4"></div>
+					<div class="col-4">
+					</div>
 					<div class="col-4 align-right">
-						<a href="passwordless" class="nav-link"><i class="fas fa-sign-in-alt"></i> Switch to passwordless login</a>
+						<c:if test="${initParam['showAppInit']}">
+							<a href="init" class="btn btn-secondary btn-sm init-btn" title="Verify Rublon configuration">App Init</a>
+						</c:if>
 					</div>
 				</div>
 			</div>
@@ -41,8 +44,8 @@
 	
 					<form action="Login" method="post" onsubmit="return validate()">
 						<div class="row">
-							<div class="col-sm-4 fieldLabel align-right">Email: </div>
-							<div class="col-sm-8"><input class="form-control" type="email" name="email" id="email" /></div>
+							<div class="col-sm-4 fieldLabel align-right">Username: </div>
+							<div class="col-sm-8"><input class="form-control" type="text" name="username" id="username" /></div>
 						</div>
 						<div class="row mt-1">
 							<div class="col-sm-4 fieldLabel align-right">Password: </div>

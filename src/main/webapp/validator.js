@@ -1,9 +1,8 @@
 function validate() {
     resetErrors();
 
-    let email = document.getElementById("email");
+    let username = document.getElementById("username");
     let password = document.getElementById("password");
-    let emailPattern = /^[a-zA-Z0-9._\+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     let valid = true;
 
     if (password.value.length === 0) {
@@ -11,9 +10,9 @@ function validate() {
         password.classList.add("error");
     }
 
-    if (emailPattern.test(email.value) === false) {
+    if (username.value.length === 0) {
         valid = false;
-        email.classList.add("error");
+        username.classList.add("error");
     }
 
     if (valid === false) {
@@ -24,7 +23,7 @@ function validate() {
 }
 
 function resetErrors() {
-    document.getElementById("email").classList.remove("error");
+    document.getElementById("username").classList.remove("error");
     document.getElementById("password").classList.remove("error");
     document.getElementById("error-box").style.display = "none";
 }
