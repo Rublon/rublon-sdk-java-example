@@ -122,15 +122,15 @@ public class Functions {
 	}
 
 	/**
-	 * Send APP init request
+	 * Validate Rublon configuration
 	 * @param request
 	 */
-	public String appInit(HttpServletRequest request) {
-		String dispatcher = "/init.jsp";
+	public String checkApplication(HttpServletRequest request) {
+		String dispatcher = "/index.jsp";
 
 		try {
-			rublon.init(cfg.get("APP_VERSION"));
-			request.setAttribute("appInit", "OK");
+			rublon.checkApplication(cfg.get("APP_VERSION"));
+			request.setAttribute("checkApplication", "OK");
 		} catch(RublonException e) {
 			e.printStackTrace();
 			request.setAttribute("error", e.getMessage());

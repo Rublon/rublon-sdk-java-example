@@ -2,6 +2,9 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>login</display-name>
   <module-name>rublonexample</module-name>
+    <welcome-file-list>
+      <welcome-file>checkApplication</welcome-file>
+    </welcome-file-list>
   <servlet>
     <description></description>
     <servlet-name>LogoutController</servlet-name>
@@ -25,16 +28,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <servlet-name>InitController</servlet-name>
-    <servlet-class>com.rublon.sdk.example.InitController</servlet-class>
+    <servlet-name>CheckApplicationController</servlet-name>
+    <servlet-class>com.rublon.sdk.example.CheckApplicationController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>InitController</servlet-name>
-    <url-pattern>/init</url-pattern>
-    <url-pattern>/Init</url-pattern>
+    <servlet-name>CheckApplicationController</servlet-name>
+    <url-pattern>/checkApplication</url-pattern>
+    <url-pattern>/CheckApplication</url-pattern>
   </servlet-mapping>
   <context-param>
-    <param-name>showAppInit</param-name>
-    <param-value>true</param-value>
+    <param-name>showCheckApplication</param-name>
+    <param-value>false</param-value>
   </context-param>
 </web-app>

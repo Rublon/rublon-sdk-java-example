@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class InitController
+ * Servlet implementation class CheckApplicationController
  */
-public class InitController extends HttpServlet {
+public class CheckApplicationController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Functions func = new Functions();
-		String dispatcher = func.appInit(request);
+		String dispatcher = func.checkApplication(request);
 
 		RequestDispatcher requestDispatcher = request.getServletContext().getRequestDispatcher(dispatcher);
 		requestDispatcher.forward(request, response);

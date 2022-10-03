@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="align-center">
-        <div class="alert alert-success align-center" role="alert">Rublon initialized successfully</div>
+        <div class="alert alert-success align-center" role="alert">Configuration is valid.</div>
         <a href="login" class="btn btn-primary mt-3">Back</a>
     </div>
 </body>

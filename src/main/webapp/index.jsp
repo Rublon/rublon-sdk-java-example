@@ -23,8 +23,8 @@
 					<div class="col-4">
 					</div>
 					<div class="col-4 align-right">
-						<c:if test="${initParam['showAppInit']}">
-							<a href="init" class="btn btn-secondary btn-sm init-btn" title="Verify Rublon configuration">App Init</a>
+						<c:if test="${initParam['showCheckApplication']}">
+							<a href="checkApplication" class="btn btn-secondary btn-sm init-btn">Check Application</a>
 						</c:if>
 					</div>
 				</div>
